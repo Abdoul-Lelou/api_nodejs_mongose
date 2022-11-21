@@ -4,7 +4,7 @@ require('dotenv').config();
 
 
 verifyToken = (req, res, next) => {
-  let token = req.headers["authorization"].split(" ")[1];
+  let token = req.headers.authorization && req.headers.authorization.split(' ')[1]; //req.headers["authorization"].split(" ")[1];
   if (!token) {
     return res.status(403).send({ message: "Veillez ajouter un token..!" });
   }
